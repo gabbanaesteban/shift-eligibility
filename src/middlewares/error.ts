@@ -12,6 +12,8 @@ export function notFound(req: Request, res: Response, next: NextFunction) {
 }
 
 export function errorHandler(error: IError, req: Request, res: Response, next: NextFunction) {
+  console.error(error);
+
   res.json({
     message: error.message,
     stack: process.env.NODE_ENV === 'production' ? '🥞' : error.stack,
