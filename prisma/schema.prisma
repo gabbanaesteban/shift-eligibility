@@ -67,6 +67,4 @@ model Shift {
   worker_id   Int?
   worker      Worker?    @relation(fields: [worker_id], references: [id])
   facility    Facility   @relation(fields: [facility_id], references: [id])
-  
-  @@index([worker_id, is_deleted, facility_id, start, end], name: "idx_shift_worker_id-start_end")
 }
