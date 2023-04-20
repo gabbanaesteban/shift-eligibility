@@ -33,7 +33,6 @@ export function getOpenShiftsByFacilityAndWorker(params: GetOpenShiftsByFacility
       WHERE
         claimed_shift.worker_id = ${workerId}
         AND claimed_shift.is_deleted = FALSE
-        AND s.facility_id = claimed_shift.facility_id
         AND NOT(s. "start" >= claimed_shift. "end"
           OR s. "end" <= claimed_shift. "start"))`);
 }
