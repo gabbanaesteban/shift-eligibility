@@ -1,0 +1,129 @@
+openapi: 3.0.3
+info:
+  title: Shift Eligibility
+  contact:
+    email: gabbanaesteban@gmail.com
+  license:
+    name: UNLICENSED
+  version: 0.0.1
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Shifts
+paths:
+  /worker/{workerId}/facilities/{facilityId}/open-shifts:
+    get:
+      tags:
+        - Shifts
+      summary: Find open shifts by worker and facility
+      description: Returns a list of open shifts grouped by date
+      operationId: getFacilityOpenShifts
+      parameters:
+        - name: workerId
+          in: path
+          description: ID of the active worker
+          required: true
+          example: 123
+          schema:
+            type: integer
+            format: int64
+        - name: facilityId
+          in: path
+          description: ID of the active Facility
+          required: true
+          example: 456
+          schema:
+            type: integer
+            format: int64
+        - name: start
+          in: query
+          description: Start date of the range (yyyy-MM-dd HH:mm:ss)
+          required: true
+          schema:
+            type: string
+            format: date
+            example: '2023-12-10 08:00:00'
+        - name: end
+          in: query
+          description: End date of the range (yyyy-MM-dd HH:mm:ss)
+          required: true
+          schema:
+            type: string
+            format: date
+            example: '2023-12-10 05:00:00'       
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                      example: '2023-12-10'
+                    shifts:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Shift'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: 
+                    type: string
+                    example: 'Validation Error - end: Invalid date'
+                  statusCode:
+                    type: integer
+                    example: 400
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                properties:
+                  message: 
+                    type: string
+                    example: 'Worker not found'
+                  statusCode:
+                    type: integer
+                    example: 404
+
+components:
+  schemas:
+    Shift:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 123
+        facility_id:
+          type: integer
+          example: 456
+        profession:
+          type: string
+          enum:
+            - CNA
+            - LVN
+            - RN
+          example: LVN
+        is_deleted:
+          type: boolean
+          example: false
+        worker_id:
+          type: integer
+          nullable: true
+          example: null
+        start:
+          type: string
+          format: date-time
+          example: '2023-12-10T09:00:00.000Z'
+        end:
+          type: string
+          format: date-time
+          example: '2023-12-10T17:00:00.000Z'

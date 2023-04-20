@@ -40,5 +40,7 @@ export async function getFacilityOpenShifts(params: GetFacilityOpenShiftsParams)
     end,
   });
 
-  return groupBy(shifts, (shift) => new Date(shift.start).toISOString().split('T')[0]);
+  const groupedShifts = groupBy(shifts, (shift) => shift.start.toISOString().split('T')[0]);
+
+  return Object.entries(groupedShifts).map(([date, shifts]) => ({ date, shifts }));
 }
