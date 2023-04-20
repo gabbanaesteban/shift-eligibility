@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "noEmit": true, // handled by esbuild
     "experimentalDecorators": true,
     "target": "es2022",
     "module": "commonjs",
