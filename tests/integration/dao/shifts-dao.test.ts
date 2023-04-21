@@ -253,7 +253,7 @@ describe('shifts-dao test suite', () => {
           worker_id: null,
           facility_id: facility.id,
           profession: Profession.CNA,
-          start: addHours(date, 8), // starts when worker shift starts
+          start: addHours(date, 8), // starts when worker shift finishes
           end: addHours(date, 9),
         }),
       ],
