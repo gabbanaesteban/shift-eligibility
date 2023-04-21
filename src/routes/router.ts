@@ -5,7 +5,7 @@ import { errorHandler, notFound } from '@src/middlewares/error';
 
 const router = Router();
 
-router.get('/worker/:workerId/facilities/:facilityId/open-shifts', asyncHandler(getFacilityOpenShifts));
+router.get('/workers/:workerId/facilities/:facilityId/open-shifts', asyncHandler(getFacilityOpenShifts));
 
 router.use(notFound);
 router.use(errorHandler);
