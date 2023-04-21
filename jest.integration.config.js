@@ -5,7 +5,7 @@ module.exports = {
     '@tests/(.*)$': '<rootDir>/tests/$1',
   },
   modulePathIgnorePatterns: ['<rootDir>/dist/', 'node_modules'],
-  testMatch: ['**/tests/unit/**/*.test.ts'],
+  testMatch: ['**/tests/integration/**/*.test.ts'],
   transform: {
     '^.+\\.ts$': [
       'ts-jest',
