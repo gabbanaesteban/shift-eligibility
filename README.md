@@ -34,7 +34,7 @@ In order to start the project, you need to run the following command:
 ```bash
 npm run start
 ```
-There is a swagger documentation available at `http://localhost:3000/api-docs`
+There is a swagger documentation available at [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 ## Tests and Development ##
 For development, you can run the following command:
 ```bash
