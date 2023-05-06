@@ -1,5 +1,7 @@
 # Shift Eligibility
 
+> This is the submission for a code challenge. Read the instructions [here](./Instructions.md). 
+
 Shift Pro MAX API
 
 ## Requirements
