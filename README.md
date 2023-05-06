@@ -1,5 +1,8 @@
 # Shift Eligibility
 
+[![Tests](https://github.com/gabbanaesteban/shift-eligibility/actions/workflows/tests.yml/badge.svg)](https://github.com/gabbanaesteban/shift-eligibility/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/gh/gabbanaesteban/shift-eligibility/branch/main/graph/badge.svg?token=roEhk6G24G)](https://codecov.io/gh/gabbanaesteban/shift-eligibility)
+
 > This is the submission for a code challenge. Read the instructions [here](./Instructions.md). 
 
 Shift Pro MAX API
