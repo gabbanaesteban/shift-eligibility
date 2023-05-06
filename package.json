@@ -16,7 +16,7 @@
     "lint": "eslint \"{src,tests}/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "test": "npm-run-all test:unit test:integration",
-    "test:unit": "dotenv -e .env.test -- npx jest --verbose --coverage",
+    "test:unit": "npx jest --verbose --coverage",
     "test:integration": " dotenv -e .env.test -- prisma migrate reset --force --skip-seed && npm run test:integration-run",
     "test:integration-run": "dotenv -e .env.test -- npx jest --verbose --coverage --config jest.integration.config.js --runInBand"
   },
